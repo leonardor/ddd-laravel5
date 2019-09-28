@@ -6,15 +6,13 @@ namespace Demo\Api\Application\Commands\Validators;
 
 use Demo\Api\Application\Contracts\CommandInterface;
 
-use \Illuminate\Support\Facades\Validator;
-use \Illuminate\Support\MessageBag;
 use \Illuminate\Validation\Rule;
 
 class UpdatePageById extends AbstractValidator
 {
     public function validate(CommandInterface $command): bool
     {
-        $this->validator = Validator::make($command->all(), [
+        $this->validator = $this->validatorFactory->make($command->all(), [
             'id' => 'required|integer|min:1',
             'title' => 'required|string',
             'description' => 'required|string',
@@ -35,10 +33,5 @@ class UpdatePageById extends AbstractValidator
         ]);
 
         return $this->validator->passes();
-    }
-
-    public function getErrors(): MessageBag
-    {
-        return $this->validator->errors();
     }
 }

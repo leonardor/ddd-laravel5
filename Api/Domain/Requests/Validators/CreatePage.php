@@ -6,14 +6,11 @@ namespace Demo\Api\Domain\Requests\Validators;
 
 use Demo\Api\Domain\Contracts\RequestInterface;
 
-use \Illuminate\Support\Facades\Validator;
-use \Illuminate\Support\MessageBag;
-
 class CreatePage extends AbstractValidator
 {
     public function validate(RequestInterface $request): bool
     {
-        $this->validator = Validator::make($request->all(), [
+        $this->validator = $this->validatorFactory->make($request->all(), [
             'title' => 'required|string|unique:pages,title',
             'description' => 'required|string',
             'type' => 'required|string|in:page',
@@ -33,10 +30,5 @@ class CreatePage extends AbstractValidator
         ]);
 
         return $this->validator->passes();
-    }
-
-    public function getErrors(): MessageBag
-    {
-        return $this->validator->errors();
     }
 }

@@ -7,17 +7,31 @@ namespace Demo\Api\Application\Commands\Validators;
 use Demo\Api\Application\Contracts\Command\ValidatorInterface;
 use Demo\Api\Application\Contracts\CommandInterface;
 
-use \Illuminate\Support\Facades\Validator;
+use \Illuminate\Validation\Factory as ValidatorFactory;
+use \Illuminate\Validation\Validator;
+use \Symfony\Component\Translation\Translator;
 use \Illuminate\Support\MessageBag;
 
 abstract class AbstractValidator implements ValidatorInterface
 {
     /**
+     * @var ValidatorFactory
+     */
+    protected $validatorFactory;
+
+    /**
      * @var Validator
      */
-    private $validator;
+    protected $validator;
+
+    public function __construct(ValidatorFactory $validatorFactory) {
+        $this->validatorFactory = $validatorFactory;
+    }
 
     abstract public function validate(CommandInterface $command): bool;
 
-    abstract public function getErrors(): MessageBag;
+    public function getErrors(): MessageBag
+    {
+        return $this->validator->errors();
+    }
 }

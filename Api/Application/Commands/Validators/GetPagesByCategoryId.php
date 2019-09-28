@@ -6,14 +6,11 @@ namespace Demo\Api\Application\Commands\Validators;
 
 use Demo\Api\Application\Contracts\CommandInterface;
 
-use \Illuminate\Support\Facades\Validator;
-use \Illuminate\Support\MessageBag;
-
 class GetPagesByCategoryId extends AbstractValidator
 {
     public function validate(CommandInterface $command): bool
     {
-        $this->validator = Validator::make($command->all(), [
+        $this->validator = $this->validatorFactory->make($command->all(), [
             'category_id' => 'required|integer|min:1',
             'offset' => 'integer|min:0',
             'limit' => 'integer|min:1',
@@ -29,10 +26,5 @@ class GetPagesByCategoryId extends AbstractValidator
         ]);
 
         return $this->validator->passes();
-    }
-
-    public function getErrors(): MessageBag
-    {
-        return $this->validator->errors();
     }
 }
