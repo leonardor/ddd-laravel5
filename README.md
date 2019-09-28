@@ -11,7 +11,7 @@ essence that was perfect for me in terms of intelligibility.
 
 This project has some repetitive and obviously unnecessary patterns and lines of code. This is done on purpose for educative goals for everyone with different levels of programming knowledge to understand how this project was thought and how it can grow further.
 
-You should definitely review the diagram PDF file to see on the ideas behind this project and to better understand the logic it was built on. 
+You should definitely review the diagram in the PDF file to see the ideas behind this project and to better understand the logic it was built on. 
 
 I read about the pros and cons about implementing Domain Driven Design in Laravel on blogs like:
 
