@@ -1,0 +1,43 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Demo\Api\Infrastructure\Persistence\Repositories\Eloquent\Assemblers;
+
+use Demo\Api\Domain\Contracts\EntityInterface;
+use Demo\Api\Domain\Entities;
+use Demo\Api\Domain\ValueObjects;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+
+class Page extends AbstractAssembler
+{
+    public function assemble(Model $model): EntityInterface
+    {
+        $entity = new Entities\Page(
+            (int) $model->getAttribute('id'),
+            $model->getAttribute('title'),
+            $model->getAttribute('description'),
+            new ValueObjects\PageType($model->getAttribute('type')),
+            (int) $model->getAttribute('category_id'),
+            (bool) $model->getAttribute('visible'),
+            static::verifyDate($model->getAttribute('date')) ? new \DateTime($model->getAttribute('date')) : null,
+            static::verifyDate($model->getAttribute('update')) ? new \DateTime($model->getAttribute('update')) : null
+        );
+
+        return $entity;
+    }
+
+    public function assembleCollection(Collection $collection): EntityInterface
+    {
+        $collectionEntity = new Entities\PageCollection();
+
+        foreach ($collection as $model) {
+            $page = $this->assemble($model);
+            $collectionEntity->append($page);
+        }
+
+        return $collectionEntity;
+    }
+}
