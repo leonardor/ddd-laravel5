@@ -13,7 +13,7 @@ use \Illuminate\Support\MessageBag;
 abstract class AbstractValidator implements ValidatorInterface
 {
     /**
-     * Validator
+     * @var Validator
      */
     private $validator;
 
