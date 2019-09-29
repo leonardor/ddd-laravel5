@@ -180,7 +180,7 @@ class PageServiceProvider extends ServiceProvider
         $this->app
             ->when('Demo\Api\Infrastructure\Persistence\Repositories\Page')
             ->needs('Demo\Api\Domain\Contracts\Repository\AssemblerInterface')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Eloquent\Assemblers\Page');
+            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Assemblers\Page');
 
         $this->app
             ->when('Demo\Api\Infrastructure\Persistence\Repositories\Page')

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Demo\Api\Infrastructure\Persistence\Repositories\Eloquent\Assemblers;
+namespace Demo\Api\Infrastructure\Persistence\Repositories\Assemblers;
 
 use Demo\Api\Domain\Contracts\EntityInterface;
 use Demo\Api\Domain\Entities;
@@ -34,8 +34,7 @@ class Page extends AbstractAssembler
         $collectionEntity = new Entities\PageCollection();
 
         foreach ($collection as $model) {
-            $page = $this->assemble($model);
-            $collectionEntity->append($page);
+            $collectionEntity->append($this->assemble($model));
         }
 
         return $collectionEntity;

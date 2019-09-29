@@ -24,11 +24,11 @@ class Page extends AbstractRepository
                 'date' => (is_a($entity->getDate(), "DateTime") ? $entity->getDate()->format('Y-m-d H:i:s') : null),
                 'update' => (is_a($entity->getUpdate(), "DateTime") ? $entity->getUpdate()->format('Y-m-d H:i:s') : null)
             ]);
-
-            return $this->assembler->assemble($model);
         } catch (\Throwable $e) {
-            throw new ModelException("Model not created", 500, $e);
+            throw new ModelException($e->getMessage(), 500, $e);
         }
+
+        return $this->assembler->assemble($model);
     }
     /**
      * @throws ModelException
@@ -57,10 +57,10 @@ class Page extends AbstractRepository
             $model->save();
 
             $this->model = $model;
-
-            return $this->assembler->assemble($model);
         } catch (\Throwable $e) {
             throw new ModelException($e->getMessage(), 500, $e);
         }
+
+        return $this->assembler->assemble($model);
     }
 }
