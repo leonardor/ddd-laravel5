@@ -10,7 +10,7 @@ use Demo\Api\Domain\Exceptions\InvalidRequestArgumentException;
 use Demo\Api\Domain\Entities;
 use Demo\Api\Domain\Responses\Assemblers;
 
-class GetPagesByCategoryId extends BaseResponseService
+class GetPagesByCategoryId extends AbstractResponseService
 {
     public function execute(RequestInterface $request): ResponseInterface
     {
@@ -21,7 +21,13 @@ class GetPagesByCategoryId extends BaseResponseService
         /**
          * @var Entities\PageCollection
          */
-        $collection = parent::getByCategoryId($request);
+        $collection = $this->repository->findByCategoryId(
+            $request->category_id,
+            $request->offset,
+            $request->limit,
+            $request->sort_field,
+            $request->sort_order
+        );
 
         return resolve(Assemblers\PageCollection::class)->assemble($collection);
     }

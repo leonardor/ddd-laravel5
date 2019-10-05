@@ -8,10 +8,6 @@ use Demo\Api\Domain\Contracts\EntityInterface;
 
 class Page extends AbstractRepository
 {
-    /**
-     * @return EntityInterface
-     * @throws ModelException
-     */
     public function create(EntityInterface $entity): EntityInterface
     {
         try {
@@ -30,10 +26,7 @@ class Page extends AbstractRepository
 
         return $this->assembler->assemble($model);
     }
-    /**
-     * @throws ModelException
-     * @throws ModelNotFoundException
-     */
+
     public function update(EntityInterface $entity): EntityInterface
     {
         try {

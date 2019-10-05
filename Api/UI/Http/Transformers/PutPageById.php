@@ -6,7 +6,7 @@ namespace Demo\Api\UI\Http\Transformers;
 
 use Demo\Api\Application\Contracts\CommandInterface;
 
-use Demo\Api\Application\Requests;
+use Demo\Api\Application\Commands;
 
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class PutPageById extends AbstractTransformer
 {
     public function transform(Request $request): CommandInterface
     {
-        $command = new Requests\UpdatePageById();
+        $command = new Commands\UpdatePageById();
         $command->id = $request->post('id', 0);
         $command->title = $request->post('title', null);
         $command->description = $request->post('description', null);

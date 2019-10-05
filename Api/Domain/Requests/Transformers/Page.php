@@ -16,11 +16,11 @@ class Page extends AbstractTransformer
     {
         $entity = new Entities\Page(
             $request->id ?? 0,
-            $request->title ?? null,
+            $request->title ?? '',
             $request->description ?? null,
             new ValueObjects\PageType($request->type ?? null),
             $request->category_id ?? 0,
-            $request->is_visible ?? null,
+            $request->is_visible ?? false,
             (!empty($request->date) ? new \DateTime($request->date) : null),
             (!empty($request->update) ? new \DateTime($request->update) : null)
         );

@@ -9,7 +9,7 @@ use Demo\Api\Domain\Contracts\ValueObjectInterface;
 use Demo\Api\Domain\ValueObjects;
 use Demo\Api\Domain\Exceptions\InvalidRequestArgumentException;
 
-class CountPagesByCategoryId extends BaseValueObjectService
+class CountPagesByCategoryId extends AbstractValueObjectService
 {
     public function execute(RequestInterface $request): ValueObjectInterface
     {
@@ -20,7 +20,7 @@ class CountPagesByCategoryId extends BaseValueObjectService
         /**
          * @var int
          */
-        $total = parent::countByCategoryId($request);
+        $total = $this->repository->countByCategoryId($request->category_id);
 
         return new ValueObjects\Count($total);
     }

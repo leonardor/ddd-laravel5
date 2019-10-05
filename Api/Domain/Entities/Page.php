@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Entities;
 
-use Demo\Api\Domain\Entities\AbstractEntity;
-
 use Demo\Api\Domain\ValueObjects;
 
 class Page extends AbstractEntity

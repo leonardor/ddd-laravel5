@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Entities;
 
-use Demo\Api\Domain\Entities\AbstractCollectionEntity;
-
 use Demo\Api\Domain\Entities;
 
 class PageCollection extends AbstractCollectionEntity

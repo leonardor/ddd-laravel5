@@ -10,7 +10,7 @@ use Demo\Api\Domain\Exceptions\InvalidRequestArgumentException;
 use Demo\Api\Domain\Entities;
 use Demo\Api\Domain\Responses\Assemblers;
 
-class CreatePage extends BaseResponseService
+class CreatePage extends AbstractResponseService
 {
     public function execute(RequestInterface $request): ResponseInterface
     {
@@ -23,7 +23,10 @@ class CreatePage extends BaseResponseService
          */
         $entity = $this->transformer->transform($request);
 
-        $entity = parent::create($entity);
+        /**
+         * @var Entities\Page
+         */
+        $entity = $this->repository->create($entity);
 
         return resolve(Assemblers\Page::class)->assemble($entity);
     }

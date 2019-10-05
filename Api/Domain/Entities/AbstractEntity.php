@@ -35,7 +35,7 @@ abstract class AbstractEntity implements EntityInterface
     protected $isVisible;
 
     /**
-     * @var SimpleValueInterface
+     * @var ValueObjectInterface
      */
     protected $type;
 
@@ -69,7 +69,7 @@ abstract class AbstractEntity implements EntityInterface
         return $this->isVisible;
     }
 
-    public function getType(): SimpleValueInterface
+    public function getType(): ValueObjectInterface
     {
         return $this->type;
     }
@@ -91,13 +91,17 @@ abstract class AbstractEntity implements EntityInterface
 
     public function toArray(): array
     {
-        $reflection = new ReflectionClass($this);
+        $reflection = new \ReflectionClass($this);
         $properties = $reflection->getProperties();
 
         $array = [];
 
         foreach ($properties as $property) {
-            $array[$property->geName()] = call_user_func($this, 'get'. ucfirst($property->geName()));
+            $method = 'get'. ucfirst($property->geName());
+
+            if (method_exists($this, $method)) {
+                $array[$property->geName()] = call_user_func(array($this, $method));
+            }
         }
 
         return $array;

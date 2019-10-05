@@ -34,7 +34,7 @@ abstract class AbstractCollectionEntity extends \ArrayObject implements EntityIn
 
     abstract public function getType(): string;
 
-    public function append($value)
+    public function append($value): void
     {
         $type = $this->getType();
 

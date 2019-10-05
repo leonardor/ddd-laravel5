@@ -11,7 +11,7 @@ use Demo\Api\Domain\Contracts\RequestInterface;
 
 abstract class AbstractTransformer implements TransformerInterface
 {
-    abstract public function transform(CommandInterface $command): RequestInteface;
+    abstract public function transform(CommandInterface $command): RequestInterface;
 
     public static function verifyDate(?string $date): bool
     {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Demo\Api\Application\Responses;
+namespace Demo\Api\Application\Responses\Assemblers;
 
 use Demo\Api\Application\Contracts\Response\AssemblerInterface;
 use Demo\Api\Application\Contracts\ResponseInterface as ApplicationResponseInterface;

@@ -8,6 +8,11 @@ use Demo\Api\Domain\Contracts\ValueObjectInterface;
 
 class Count implements ValueObjectInterface
 {
+    /**
+     * @var int
+     */
+    private $value;
+
     public function __construct(int $value)
     {
         $this->value = $value;

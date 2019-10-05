@@ -10,7 +10,7 @@ use Demo\Api\Domain\Exceptions\InvalidRequestArgumentException;
 use Demo\Api\Domain\Entities;
 use Demo\Api\Domain\Responses\Assemblers;
 
-class DeletePageById extends BaseResponseService
+class DeletePageById extends AbstractResponseService
 {
     public function execute(RequestInterface $request): ResponseInterface
     {
@@ -21,7 +21,7 @@ class DeletePageById extends BaseResponseService
         /**
          * @var Entities\Page
          */
-        $entity = parent::deleteById($request);
+        $entity = $this->repository->deleteById($request->id);
 
         return resolve(Assemblers\Page::class)->assemble($entity);
     }

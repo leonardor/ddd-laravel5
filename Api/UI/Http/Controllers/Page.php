@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Demo\Api\UI\Http\Controllers;
 
-use Demo\Api\Application\Usecases;
-use Demo\Api\Application\Responses;
+use Demo\Api\Application;
 
 use Demo\Api\UI\Http\Transformers;
 
@@ -17,15 +16,17 @@ class Page extends AbstractController
     public function index(Request $request): Response
     {
         /**
-         * @var Requests\GetPagesByCategoryId
+         * @var Application\Commands\GetPagesByCategoryId
          */
-        $appRequest = resolve(Transformers\GetPagesByCategoryId::class)->transform($request);
+        $appRequest = resolve(Transformers\GetPagesByCategoryId::class)
+                            ->transform($request);
        
         try {
             /**
-             * @var Responses\GetPagesByCategoryId
+             * @var Application\Responses\PageAggregate
              */
-            $appResponse = resolve(Usecases\GetPagesByCategoryId::class)->execute($appRequest);
+            $appResponse = resolve(Application\Usecases\GetPagesByCategoryId::class)
+                                ->execute($appRequest);
 
             $response = $response = [
                 'status' => 200,
@@ -48,15 +49,17 @@ class Page extends AbstractController
         $request->merge(['id'=>$id]);
 
         /**
-         * @var Requests\GetPageById
+         * @var Application\Commands\GetPageById
          */
-        $appRequest = resolve(Transformers\GetPageById::class)->transform($request);
+        $appRequest = resolve(Transformers\GetPageById::class)
+                            ->transform($request);
 
         try {
             /**
-             * @var Responses\GetPageById
+             * @var Application\Responses\Page
              */
-            $appResponse = resolve(Usecases\GetPageById::class)->execute($appRequest);
+            $appResponse = resolve(Application\Usecases\GetPageById::class)
+                                ->execute($appRequest);
 
             $response = $response = [
                 'status' => 200,
@@ -79,15 +82,17 @@ class Page extends AbstractController
         $request->merge(['id'=>$id]);
 
         /**
-         * @var Requests\DeletePageById
+         * @var Application\Commands\DeletePageById
          */
-        $appRequest = resolve(Transformers\DeletePageById::class)->transform($request);
+        $appRequest = resolve(Transformers\DeletePageById::class)
+                            ->transform($request);
         
         try {
             /**
-             * @var Responses\DeletePageById
+             * @var Application\Responses\Page
              */
-            $appResponse = resolve(Usecases\DeletePageById::class)->execute($appRequest);
+            $appResponse = resolve(Application\Usecases\DeletePageById::class)
+                                ->execute($appRequest);
 
             $response = $response = [
                 'status' => 200,
@@ -110,15 +115,17 @@ class Page extends AbstractController
         $request->merge(['id'=>$id]);
 
         /**
-         * @var Requests\UpdatePageById
+         * @var Application\Commands\UpdatePageById
          */
-        $appRequest = resolve(Transformers\PutPageById::class)->transform($request);
+        $appRequest = resolve(Transformers\PutPageById::class)
+                            ->transform($request);
         
         try {
             /**
-             * @var Responses\UpdatePageById
+             * @var Application\Responses\Page
              */
-            $appResponse = resolve(Usecases\UpdatePageById::class)->execute($appRequest);
+            $appResponse = resolve(Application\Usecases\UpdatePageById::class)
+                                ->execute($appRequest);
 
             $response = $response = [
                 'status' => 200,
@@ -141,15 +148,17 @@ class Page extends AbstractController
         $request->merge(['id'=>0]);
         
         /**
-         * @var Requests\CreatePage
+         * @var Application\Commands\CreatePage
          */
-        $appRequest = resolve(Transformers\PostPage::class)->transform($request);
+        $appRequest = resolve(Transformers\PostPage::class)
+                            ->transform($request);
         
         try {
             /**
-             * @var Responses\CreatePage
+             * @var Application\Responses\Page
              */
-            $appResponse = resolve(Usecases\CreatePage::class)->execute($appRequest);
+            $appResponse = resolve(Application\Usecases\CreatePage::class)
+                                ->execute($appRequest);
 
             $response = $response = [
                 'status' => 201,

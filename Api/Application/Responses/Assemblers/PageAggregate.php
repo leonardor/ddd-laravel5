@@ -7,6 +7,7 @@ namespace Demo\Api\Application\Responses\Assemblers;
 use Demo\Api\Application\Contracts\ResponseInterface as ApplicationResponseInterface;
 use Demo\Api\Application\Responses\Assemblers;
 use Demo\Api\Application\Responses;
+use Demo\Api\Application\Contracts\ValueObjectInterface;
 
 use Demo\Api\Domain\Contracts\ResponseInterface as DomainResponseInterface;
 
@@ -19,9 +20,9 @@ class PageAggregate extends AbstractAggregateAssembler
         $response = new  Responses\PageAggregate();
 
         $response->total = $total;
-        $response->count = count($response);
         $response->items = resolve(Assemblers\PageCollection::class)
                                 ->assemble($response);
+        $response->count = count($response->items);
 
         return $response;
     }

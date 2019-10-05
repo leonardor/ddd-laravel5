@@ -15,7 +15,13 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class AbstractRepository implements RepositoryInterface
 {
+    /**
+     * @var Model
+     */
     protected $model;
+    /**
+     * @var AssemblerInterface
+     */
     protected $assembler;
 
     public function __construct(Model $model, AssemblerInterface $assembler)
@@ -24,9 +30,6 @@ abstract class AbstractRepository implements RepositoryInterface
         $this->assembler = $assembler;
     }
 
-    /**
-     * @throws ModelNotFoundException
-     */
     public function findById(int $id): EntityInterface
     {
         try {
@@ -62,10 +65,6 @@ abstract class AbstractRepository implements RepositoryInterface
                         ->count();
     }
 
-    /**
-     * @return EntityInterface
-     * @throws ModelException
-     */
     public function create(EntityInterface $entity): EntityInterface
     {
         try {
@@ -76,10 +75,7 @@ abstract class AbstractRepository implements RepositoryInterface
             throw new ModelException("Model not created", 500, $e);
         }
     }
-    /**
-     * @throws ModelException
-     * @throws ModelNotFoundException
-     */
+
     public function update(EntityInterface $entity): EntityInterface
     {
         try {

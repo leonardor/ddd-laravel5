@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Contracts;
 
-use Demo\Api\Domain\Contracts\EntityInterface;
-
 interface RepositoryInterface
 {
     public function findById(int $id): EntityInterface;

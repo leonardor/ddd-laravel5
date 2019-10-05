@@ -23,7 +23,7 @@ class Page extends AbstractAssembler
         $appResponse->is_visible = $response->is_visible;
         $appResponse->category_id = $response->category_id;
         $appResponse->date = !empty($response->date) ? (new \DateTime($response->date))->format('Y-m-d H:i:s') : null;
-        $appResponse->update = !empty($entity->update) ? (new \DateTime($response->update))->format ('Y-m-d H:i:s') : null;
+        $appResponse->update = !empty($response->update) ? (new \DateTime($response->update))->format ('Y-m-d H:i:s') : null;
         
         return $appResponse;
     }

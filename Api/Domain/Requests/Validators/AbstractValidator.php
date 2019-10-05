@@ -9,7 +9,6 @@ use Demo\Api\Domain\Contracts\RequestInterface;
 
 use \Illuminate\Validation\Factory as ValidatorFactory;
 use \Illuminate\Validation\Validator;
-use \Symfony\Component\Translation\Translator;
 use \Illuminate\Support\MessageBag;
 
 abstract class AbstractValidator implements ValidatorInterface

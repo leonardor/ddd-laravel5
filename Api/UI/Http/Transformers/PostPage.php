@@ -6,7 +6,7 @@ namespace Demo\Api\UI\Http\Transformers;
 
 use Demo\Api\Application\Contracts\CommandInterface;
 
-use Demo\Api\Application\Requests;
+use Demo\Api\Application\Commands;
 
 use Illuminate\Http\Request;
 

@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-abstract class AbstractController extends Controller
+abstract class AbstractController extends Controller implements ControllerInterface
 {
     abstract public function index(Request $request): Response;
 

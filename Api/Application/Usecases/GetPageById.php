@@ -9,6 +9,8 @@ use Demo\Api\Application\Contracts\ResponseInterface;
 use Demo\Api\Application\Exceptions\InvalidCommandArgument;
 use Demo\Api\Application\Responses\Assemblers;
 
+use Demo\Api\Domain;
+
 class GetPageById extends AbstractResponseUsecase
 {
     public function execute(CommandInterface $command): ResponseInterface
@@ -17,8 +19,14 @@ class GetPageById extends AbstractResponseUsecase
             throw new InvalidCommandArgument($this->validator->getErrors()->first(), 400);
         }
 
+        /**
+         * @var Domain\Requests\GetPageById
+         */
         $request = $this->transformer->transform($command);
 
+        /**
+         * @var Domain\Responses\Page
+         */
         $response = $this->service->execute($request);
 
         return resolve(Assemblers\Page::class)->assemble($response);

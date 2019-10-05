@@ -34,7 +34,7 @@ abstract class AbstractCollectionResponse extends \ArrayObject implements Respon
 
     abstract public function getType(): string;
 
-    public function append($value)
+    public function append($value): void
     {
         $type = $this->getType();
 

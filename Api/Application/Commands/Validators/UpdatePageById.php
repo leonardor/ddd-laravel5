@@ -6,8 +6,6 @@ namespace Demo\Api\Application\Commands\Validators;
 
 use Demo\Api\Application\Contracts\CommandInterface;
 
-use \Illuminate\Validation\Rule;
-
 class UpdatePageById extends AbstractValidator
 {
     public function validate(CommandInterface $command): bool

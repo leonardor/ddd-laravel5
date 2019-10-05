@@ -4,14 +4,20 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\ValueObjects;
 
-use Demo\Api\Domain\Exceptions\InvalidpAGETypeException;
+use Demo\Api\Domain\Contracts\ValueObjectInterface;
+use Demo\Api\Domain\Exceptions\InvalidPageTypeException;
 
-class PageType extends AbstractSimpleValue
+class PageType implements ValueObjectInterface
 {
-    protected const ALLOWED_VALUES = [
+    private const ALLOWED_VALUES = [
         'page',
         'post'
     ];
+
+    /**
+     * @var string
+     */
+    private $value;
 
     public function __construct(?string $value)
     {
@@ -20,5 +26,10 @@ class PageType extends AbstractSimpleValue
         }
 
         $this->value = $value;
+    }
+
+    public function getValue(): string
+    {
+        return $this->value;
     }
 }

@@ -10,7 +10,7 @@ use Demo\Api\Domain\Exceptions\InvalidRequestArgumentException;
 use Demo\Api\Domain\Entities;
 use Demo\Api\Domain\Responses\Assemblers;
 
-class GetPageById extends BaseResponseService
+class GetPageById extends AbstractResponseService
 {
     public function execute(RequestInterface $request): ResponseInterface
     {
@@ -21,7 +21,7 @@ class GetPageById extends BaseResponseService
         /**
          * @var Entities\Page
          */
-        $entity = parent::getById($request);
+        $entity = $this->repository->findById($request->id);
 
         return resolve(Assemblers\Page::class)->assemble($entity);
     }
