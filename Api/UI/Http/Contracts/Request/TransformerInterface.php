@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Demo\Api\UI\Http\Contracts;
+namespace Demo\Api\UI\Http\Contracts\Request;
 
 use Demo\Api\Application\Contracts\CommandInterface;
 
