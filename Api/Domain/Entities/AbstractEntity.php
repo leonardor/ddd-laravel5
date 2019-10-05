@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Demo\Api\Domain\Entities;
 
 use Demo\Api\Domain\Contracts\EntityInterface;
-use Demo\Api\Domain\Contracts\SimpleValueInterface;
+use Demo\Api\Domain\Contracts\ValueObjectInterface;
 
 abstract class AbstractEntity implements EntityInterface
 {
