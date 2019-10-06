@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Services;
 
-use Demo\Api\Domain\Contracts\ResponseInterface;
-use Demo\Api\Domain\Contracts\RequestInterface;
-use Demo\Api\Domain\Contracts\Response\ServiceInterface;
-use Demo\Api\Domain\Contracts\Request\TransformerInterface;
-use Demo\Api\Domain\Contracts\RepositoryInterface;
-use Demo\Api\Domain\Contracts\Request\ValidatorInterface;
+use Demo\Api\Domain\{
+    Contracts\ResponseInterface,
+    Contracts\RequestInterface,
+    Contracts\Response\ServiceInterface,
+    Contracts\Request\TransformerInterface,
+    Contracts\RepositoryInterface,
+    Contracts\Request\ValidatorInterface
+};
 
 abstract class AbstractResponseService implements ServiceInterface
 {

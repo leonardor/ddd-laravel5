@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Services;
 
-use Demo\Api\Domain\Contracts\RequestInterface;
-use Demo\Api\Domain\Contracts\ValueObjectInterface;
-use Demo\Api\Domain\ValueObjects;
-use Demo\Api\Domain\Exceptions\InvalidRequestArgumentException;
+use Demo\Api\Domain\{
+    Contracts\RequestInterface,
+    Contracts\ValueObjectInterface,
+    ValueObjects,
+    Exceptions\InvalidRequestArgumentException
+};
 
 class CountPagesByCategoryId extends AbstractValueObjectService
 {

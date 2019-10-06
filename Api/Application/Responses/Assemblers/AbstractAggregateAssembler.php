@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Demo\Api\Application\Responses\Assemblers;
 
-use Demo\Api\Application\Contracts\Response\AggregateAssemblerInterface;
-use Demo\Api\Application\Contracts\ResponseInterface as ApplicationResponseInterface;
-use Demo\Api\Application\Contracts\ValueObjectInterface;
+use Demo\Api\Application\{
+    Contracts\Response\AggregateAssemblerInterface,
+    Contracts\ResponseInterface as ApplicationResponseInterface,
+    Contracts\ValueObjectInterface
+};
 
 use Demo\Api\Domain\Contracts\ResponseInterface as DomainResponseInterface;
 

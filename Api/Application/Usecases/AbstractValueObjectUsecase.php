@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Demo\Api\Application\Usecases;
 
-use Demo\Api\Application\Contracts\ValueObject\UsecaseInterface;
-use Demo\Api\Application\Contracts\CommandInterface;
-use Demo\Api\Application\Contracts\ValueObjectInterface;
-use Demo\Api\Application\Contracts\Command\ValidatorInterface;
-use Demo\Api\Application\Contracts\Command\TransformerInterface;
+use Demo\Api\Application\{
+    Contracts\ValueObject\UsecaseInterface,
+    Contracts\CommandInterface,
+    Contracts\ValueObjectInterface,
+    Contracts\Command\ValidatorInterface,
+    Contracts\Command\TransformerInterface
+};
 
 use Demo\Api\Domain\Contracts\ValueObject\ServiceInterface;
 

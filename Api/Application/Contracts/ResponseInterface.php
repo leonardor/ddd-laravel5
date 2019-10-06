@@ -6,5 +6,4 @@ namespace Demo\Api\Application\Contracts;
 
 interface ResponseInterface
 {
-
 }

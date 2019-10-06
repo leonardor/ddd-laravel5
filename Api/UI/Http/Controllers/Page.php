@@ -6,10 +6,12 @@ namespace Demo\Api\UI\Http\Controllers;
 
 use Demo\Api\Application;
 
-use Demo\Api\UI\Http\Transformers;
+use Demo\Api\UI\Http\Requests\Transformers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use \Illuminate\Http\{
+    Request,
+    Response
+};
 
 class Page extends AbstractController
 {

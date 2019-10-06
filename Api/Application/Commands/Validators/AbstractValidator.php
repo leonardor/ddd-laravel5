@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Demo\Api\Application\Commands\Validators;
 
-use Demo\Api\Application\Contracts\Command\ValidatorInterface;
-use Demo\Api\Application\Contracts\CommandInterface;
+use Demo\Api\Application\{
+    Contracts\Command\ValidatorInterface,
+    Contracts\CommandInterface
+};
 
-use \Illuminate\Validation\Factory as ValidatorFactory;
-use \Illuminate\Validation\Validator;
-use \Illuminate\Support\MessageBag;
+use \Illuminate\{
+    Validation\Factory as ValidatorFactory,
+    Validation\Validator,
+    Support\MessageBag
+};
 
 abstract class AbstractValidator implements ValidatorInterface
 {

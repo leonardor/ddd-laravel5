@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Responses\Assemblers;
 
-use Demo\Api\Domain\Contracts\ResponseInterface;
-use Demo\Api\Domain\Contracts\EntityInterface;
-
-use Demo\Api\Domain\Responses;
+use Demo\Api\Domain\{
+    Contracts\ResponseInterface,
+    Contracts\EntityInterface,
+    Responses
+};
 
 class PageCollection extends AbstractAssembler
 {

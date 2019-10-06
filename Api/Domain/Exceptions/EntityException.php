@@ -6,5 +6,4 @@ namespace Demo\Api\Domain\Exceptions;
 
 class EntityException extends \Exception
 {
-
 }

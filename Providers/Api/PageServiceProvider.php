@@ -4,187 +4,189 @@ declare(strict_types=1);
 
 namespace Demo\Providers\Api;
 
-use Illuminate\Support\ServiceProvider;
+use \Illuminate\Support\ServiceProvider;
+
+use Demo\Api\{
+    Application,
+    Domain,
+    Infrastructure
+};
 
 class PageServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-    }
-
     public function register()
     {
         /* services */
         $this->app
-            ->when('Demo\Api\Domain\Services\GetPageById')
-            ->needs('Demo\Api\Domain\Contracts\RepositoryInterface')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Page');
+            ->when(Domain\Services\GetPageById::class)
+            ->needs(Domain\Contracts\RepositoryInterface::class)
+            ->give(Infrastructure\Persistence\Repositories\Page::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\GetPageById')
-            ->needs('Demo\Api\Domain\Contracts\Request\ValidatorInterface')
-            ->give('Demo\Api\Domain\Requests\Validators\GetPageById');
+            ->when(Domain\Services\GetPageById::class)
+            ->needs(Domain\Contracts\Request\ValidatorInterface::class)
+            ->give(Domain\Requests\Validators\GetPageById::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\DeletePageById')
-            ->needs('Demo\Api\Domain\Contracts\RepositoryInterface')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Page');
+            ->when(Domain\Services\DeletePageById::class)
+            ->needs(Domain\Contracts\RepositoryInterface::class)
+            ->give(Infrastructure\Persistence\Repositories\Page::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\DeletePageById')
-            ->needs('Demo\Api\Domain\Contracts\Request\ValidatorInterface')
-            ->give('Demo\Api\Domain\Requests\Validators\DeletePageById');
+            ->when(Domain\Services\DeletePageById::class)
+            ->needs(Domain\Contracts\Request\ValidatorInterface::class)
+            ->give(Domain\Requests\Validators\DeletePageById::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\UpdatePageById')
-            ->needs('Demo\Api\Domain\Contracts\RepositoryInterface')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Page');
+            ->when(Domain\Services\UpdatePageById::class)
+            ->needs(Domain\Contracts\RepositoryInterface::class)
+            ->give(Infrastructure\Persistence\Repositories\Page::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\UpdatePageById')
-            ->needs('Demo\Api\Domain\Contracts\Request\ValidatorInterface')
-            ->give('Demo\Api\Domain\Requests\Validators\UpdatePageById');
+            ->when(Domain\Services\UpdatePageById::class)
+            ->needs(Domain\Contracts\Request\ValidatorInterface::class)
+            ->give(Domain\Requests\Validators\UpdatePageById::class);
         
         $this->app
-            ->when('Demo\Api\Domain\Services\UpdatePageById')
-            ->needs('Demo\Api\Domain\Contracts\Request\TransformerInterface')
-            ->give('Demo\Api\Domain\Request\Transformers\Page');
+            ->when(Domain\Services\UpdatePageById::class)
+            ->needs(Domain\Contracts\Request\TransformerInterface::class)
+            ->give(Domain\Requests\Transformers\Page::class);
         
         $this->app
-            ->when('Demo\Api\Domain\Services\CreatePage')
-            ->needs('Demo\Api\Domain\Contracts\RepositoryInterface')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Page');
+            ->when(Domain\Services\CreatePage::class)
+            ->needs(Domain\Contracts\RepositoryInterface::class)
+            ->give(Infrastructure\Persistence\Repositories\Page::class);
   
         $this->app
-            ->when('Demo\Api\Domain\Services\CreatePage')
-            ->needs('Demo\Api\Domain\Contracts\Request\ValidatorInterface')
-            ->give('Demo\Api\Domain\Requests\Validators\CreatePage');
+            ->when(Domain\Services\CreatePage::class)
+            ->needs(Domain\Contracts\Request\ValidatorInterface::class)
+            ->give(Domain\Requests\Validators\CreatePage::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\CreatePage')
-            ->needs('Demo\Api\Domain\Contracts\Request\TransformerInterface')
-            ->give('Demo\Api\Domain\Request\Transformers\Page');
+            ->when(Domain\Services\CreatePage::class)
+            ->needs(Domain\Contracts\Request\TransformerInterface::class)
+            ->give(Domain\Requests\Transformers\Page::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\GetPagesByCategoryId')
-            ->needs('Demo\Api\Domain\Contracts\RepositoryInterface')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Page');
+            ->when(Domain\Services\GetPagesByCategoryId::class)
+            ->needs(Domain\Contracts\RepositoryInterface::class)
+            ->give(Infrastructure\Persistence\Repositories\Page::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\GetPagesByCategoryId')
-            ->needs('Demo\Api\Domain\Contracts\Request\ValidatorInterface')
-            ->give('Demo\Api\Domain\Requests\Validators\GetPagesByCategoryId');
+            ->when(Domain\Services\GetPagesByCategoryId::class)
+            ->needs(Domain\Contracts\Request\ValidatorInterface::class)
+            ->give(Domain\Requests\Validators\GetPagesByCategoryId::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\CountPagesByCategoryId')
-            ->needs('Demo\Api\Domain\Contracts\RepositoryInterface')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Page');
+            ->when(Domain\Services\CountPagesByCategoryId::class)
+            ->needs(Domain\Contracts\RepositoryInterface::class)
+            ->give(Infrastructure\Persistence\Repositories\Page::class);
 
         $this->app
-            ->when('Demo\Api\Domain\Services\CountPagesByCategoryId')
-            ->needs('Demo\Api\Domain\Contracts\Request\ValidatorInterface')
-            ->give('Demo\Api\Domain\Requests\Validators\CountPagesByCategoryId');
+            ->when(Domain\Services\CountPagesByCategoryId::class)
+            ->needs(Domain\Contracts\Request\ValidatorInterface::class)
+            ->give(Domain\Requests\Validators\CountPagesByCategoryId::class);
 
         /* usecases */
         $this->app
-            ->when('Demo\Api\Application\Usecases\CountPagesByCategoryId')
-            ->needs('Demo\Api\Domain\Contracts\ValueObject\ServiceInterface')
-            ->give('Demo\Api\Domain\Services\CountPagesByCategoryId');
+            ->when(Application\Usecases\CountPagesByCategoryId::class)
+            ->needs(Domain\Contracts\ValueObject\ServiceInterface::class)
+            ->give(Domain\Services\CountPagesByCategoryId::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\CountPagesByCategoryId')
-            ->needs('Demo\Api\Application\Contracts\Command\ValidatorInterface')
-            ->give('Demo\Api\Application\Commands\Validators\CountPagesByCategoryId');
+            ->when(Application\Usecases\CountPagesByCategoryId::class)
+            ->needs(Application\Contracts\Command\ValidatorInterface::class)
+            ->give(Application\Commands\Validators\CountPagesByCategoryId::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\CountPagesByCategoryId')
-            ->needs('Demo\Api\Application\Contracts\Command\TransformerInterface')
-            ->give('Demo\Api\Application\Commands\Transformers\CountPagesByCategoryId');
+            ->when(Application\Usecases\CountPagesByCategoryId::class)
+            ->needs(Application\Contracts\Command\TransformerInterface::class)
+            ->give(Application\Commands\Transformers\CountPagesByCategoryId::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\GetPagesByCategoryId')
-            ->needs('Demo\Api\Domain\Contracts\Response\ServiceInterface')
-            ->give('Demo\Api\Domain\Services\GetPagesByCategoryId');
+            ->when(Application\Usecases\GetPagesByCategoryId::class)
+            ->needs(Domain\Contracts\Response\ServiceInterface::class)
+            ->give(Domain\Services\GetPagesByCategoryId::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\GetPagesByCategoryId')
-            ->needs('Demo\Api\Application\Contracts\Command\ValidatorInterface')
-            ->give('Demo\Api\Application\Commands\Validators\GetPagesByCategoryId');
+            ->when(Application\Usecases\GetPagesByCategoryId::class)
+            ->needs(Application\Contracts\Command\ValidatorInterface::class)
+            ->give(Application\Commands\Validators\GetPagesByCategoryId::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\GetPagesByCategoryId')
-            ->needs('Demo\Api\Application\Contracts\Command\TransformerInterface')
-            ->give('Demo\Api\Application\Commands\Transformers\GetPagesByCategoryId');
+            ->when(Application\Usecases\GetPagesByCategoryId::class)
+            ->needs(Application\Contracts\Command\TransformerInterface::class)
+            ->give(Application\Commands\Transformers\GetPagesByCategoryId::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\GetPageById')
-            ->needs('Demo\Api\Domain\Contracts\Response\ServiceInterface')
-            ->give('Demo\Api\Domain\Services\GetPageById');
+            ->when(Application\Usecases\GetPageById::class)
+            ->needs(Domain\Contracts\Response\ServiceInterface::class)
+            ->give(Domain\Services\GetPageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\GetPageById')
-            ->needs('Demo\Api\Application\Contracts\Command\ValidatorInterface')
-            ->give('Demo\Api\Application\Commands\Validators\GetPageById');
+            ->when(Application\Usecases\GetPageById::class)
+            ->needs(Application\Contracts\Command\ValidatorInterface::class)
+            ->give(Application\Commands\Validators\GetPageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\GetPageById')
-            ->needs('Demo\Api\Application\Contracts\Command\TransformerInterface')
-            ->give('Demo\Api\Application\Commands\Transformers\GetPageById');
+            ->when(Application\Usecases\GetPageById::class)
+            ->needs(Application\Contracts\Command\TransformerInterface::class)
+            ->give(Application\Commands\Transformers\GetPageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\DeletePageById')
-            ->needs('Demo\Api\Domain\Contracts\Response\ServiceInterface')
-            ->give('Demo\Api\Domain\Services\DeletePageById');
+            ->when(Application\Usecases\DeletePageById::class)
+            ->needs(Domain\Contracts\Response\ServiceInterface::class)
+            ->give(Domain\Services\DeletePageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\DeletePageById')
-            ->needs('Demo\Api\Application\Contracts\Command\ValidatorInterface')
-            ->give('Demo\Api\Application\Commands\Validators\DeletePageById');
+            ->when(Application\Usecases\DeletePageById::class)
+            ->needs(Application\Contracts\Command\ValidatorInterface::class)
+            ->give(Application\Commands\Validators\DeletePageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\DeletePageById')
-            ->needs('Demo\Api\Application\Contracts\Command\TransformerInterface')
-            ->give('Demo\Api\Application\Commands\Transformers\DeletePageById');
+            ->when(Application\Usecases\DeletePageById::class)
+            ->needs(Application\Contracts\Command\TransformerInterface::class)
+            ->give(Application\Commands\Transformers\DeletePageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\UpdatePageById')
-            ->needs('Demo\Api\Domain\Contracts\Response\ServiceInterface')
-            ->give('Demo\Api\Domain\Services\UpdatePageById');
+            ->when(Application\Usecases\UpdatePageById::class)
+            ->needs(Domain\Contracts\Response\ServiceInterface::class)
+            ->give(Domain\Services\UpdatePageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\UpdatePageById')
-            ->needs('Demo\Api\Application\Contracts\Command\ValidatorInterface')
-            ->give('Demo\Api\Application\Commands\Validators\UpdatePageById');
+            ->when(Application\Usecases\UpdatePageById::class)
+            ->needs(Application\Contracts\Command\ValidatorInterface::class)
+            ->give(Application\Commands\Validators\UpdatePageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\UpdatePageById')
-            ->needs('Demo\Api\Application\Contracts\Command\TransformerInterface')
-            ->give('Demo\Api\Application\Commands\Transformers\UpdatePageById');
+            ->when(Application\Usecases\UpdatePageById::class)
+            ->needs(Application\Contracts\Command\TransformerInterface::class)
+            ->give(Application\Commands\Transformers\UpdatePageById::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\CreatePage')
-            ->needs('Demo\Api\Domain\Contracts\Response\ServiceInterface')
-            ->give('Demo\Api\Domain\Services\CreatePage');
+            ->when(Application\Usecases\CreatePage::class)
+            ->needs(Domain\Contracts\Response\ServiceInterface::class)
+            ->give(Domain\Services\CreatePage::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\CreatePage')
-            ->needs('Demo\Api\Application\Contracts\Command\ValidatorInterface')
-            ->give('Demo\Api\Application\Commands\Validators\CreatePage');
+            ->when(Application\Usecases\CreatePage::class)
+            ->needs(Application\Contracts\Command\ValidatorInterface::class)
+            ->give(Application\Commands\Validators\CreatePage::class);
 
         $this->app
-            ->when('Demo\Api\Application\Usecases\CreatePage')
-            ->needs('Demo\Api\Application\Contracts\Command\TransformerInterface')
-            ->give('Demo\Api\Application\Commands\Transformers\CreatePage');
+            ->when(Application\Usecases\CreatePage::class)
+            ->needs(Application\Contracts\Command\TransformerInterface::class)
+            ->give(Application\Commands\Transformers\CreatePage::class);
 
         /* persistence */
         $this->app
-            ->when('Demo\Api\Infrastructure\Persistence\Repositories\Page')
-            ->needs('Demo\Api\Domain\Contracts\Repository\AssemblerInterface')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Assemblers\Page');
+            ->when(Infrastructure\Persistence\Repositories\Page::class)
+            ->needs(Domain\Contracts\Repository\AssemblerInterface::class)
+            ->give(Infrastructure\Persistence\Repositories\Assemblers\Page::class);
 
         $this->app
-            ->when('Demo\Api\Infrastructure\Persistence\Repositories\Page')
-            ->needs('Illuminate\Database\Eloquent\Model')
-            ->give('Demo\Api\Infrastructure\Persistence\Repositories\Eloquent\Page');
+            ->when(Infrastructure\Persistence\Repositories\Page::class)
+            ->needs(\Illuminate\Database\Eloquent\Model::class)
+            ->give(Infrastructure\Persistence\Repositories\Eloquent\Page::class);
     }
 }

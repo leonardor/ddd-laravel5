@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Demo\Api\Application\Usecases;
 
-use Demo\Api\Application\Contracts\ValueObjectInterface;
-use Demo\Api\Application\Contracts\CommandInterface;
-use Demo\Api\Application\ValueObjects;
-use Demo\Api\Application\Exceptions\InvalidCommandArgument;
+use Demo\Api\Application\{
+    Contracts\ValueObjectInterface,
+    Contracts\CommandInterface,
+    ValueObjects,
+    Exceptions\InvalidCommandArgument
+};
 
 use Demo\Api\Domain;
 

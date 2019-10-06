@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\ValueObjects;
 
-use Demo\Api\Domain\Contracts\ValueObjectInterface;
-use Demo\Api\Domain\Exceptions\InvalidPageTypeException;
+use Demo\Api\Domain\{
+    Contracts\ValueObjectInterface,
+    Exceptions\InvalidPageTypeException
+};
 
 class PageType implements ValueObjectInterface
 {

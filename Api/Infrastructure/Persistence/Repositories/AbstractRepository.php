@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace Demo\Api\Infrastructure\Persistence\Repositories;
 
-use Demo\Api\Domain\Contracts\RepositoryInterface;
-use Demo\Api\Domain\Contracts\Repository\AssemblerInterface;
-use Demo\Api\Domain\Contracts\EntityInterface;
+use Demo\Api\Domain\{
+    Contracts\RepositoryInterface,
+    Contracts\Repository\AssemblerInterface,
+    Contracts\EntityInterface
+};
 
-use Demo\Api\Infrastructure\Persistence\Exceptions\ModelNotFoundException;
-use Demo\Api\Infrastructure\Persistence\Exceptions\ModelException;
+use Demo\Api\Infrastructure\Persistence\{
+    Exceptions\ModelNotFoundException,
+    Exceptions\ModelException
+};
 
-use Illuminate\Database\Eloquent\Model;
+use \Illuminate\Database\Eloquent\Model;
 
 abstract class AbstractRepository implements RepositoryInterface
 {

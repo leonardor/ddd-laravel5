@@ -6,5 +6,4 @@ namespace Demo\Api\Domain\Exceptions;
 
 class InvalidValueException extends \Exception
 {
-
 }

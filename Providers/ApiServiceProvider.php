@@ -4,16 +4,14 @@ declare(strict_types=1);
 
 namespace Demo\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use \Illuminate\Support\ServiceProvider;
+
+use Demo\Providers\Api;
 
 class ApiServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-    }
-
     public function register()
     {
-        $this->app->register('Demo\Providers\Api\PageServiceProvider');
+        $this->app->register(Api\PageServiceProvider::class);
     }
 }

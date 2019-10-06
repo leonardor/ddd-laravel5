@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Demo\Api\Application\Usecases;
 
-use Demo\Api\Application\Contracts\Response\UsecaseInterface;
-use Demo\Api\Application\Contracts\CommandInterface;
-use Demo\Api\Application\Contracts\ResponseInterface;
-use Demo\Api\Application\Contracts\Command\ValidatorInterface;
-use Demo\Api\Application\Contracts\Command\TransformerInterface;
+use Demo\Api\Application\{
+    Contracts\Response\UsecaseInterface,
+    Contracts\CommandInterface,
+    Contracts\ResponseInterface,
+    Contracts\Command\ValidatorInterface,
+    Contracts\Command\TransformerInterface
+};
+
 use Demo\Api\Domain\Contracts\Response\ServiceInterface;
 
 abstract class AbstractResponseUsecase implements UsecaseInterface

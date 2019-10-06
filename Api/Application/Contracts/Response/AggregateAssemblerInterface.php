@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Demo\Api\Application\Contracts\Response;
 
-use Demo\Api\Application\Contracts\ResponseInterface as ApplicationResponseInterface;
-use Demo\Api\Application\Contracts\ValueObjectInterface;
+use Demo\Api\Application\{
+    Contracts\ResponseInterface as ApplicationResponseInterface,
+    Contracts\ValueObjectInterface
+};
 
 use Demo\Api\Domain\Contracts\ResponseInterface as DomainResponseInterface;
 

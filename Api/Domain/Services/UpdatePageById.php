@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Services;
 
-use Demo\Api\Domain\Contracts\ResponseInterface;
-use Demo\Api\Domain\Contracts\RequestInterface;
-use Demo\Api\Domain\Exceptions\InvalidRequestArgumentException;
-use Demo\Api\Domain\Entities;
-use Demo\Api\Domain\Responses\Assemblers;
+use Demo\Api\Domain\{
+    Contracts\ResponseInterface,
+    Contracts\RequestInterface,
+    Exceptions\InvalidRequestArgumentException,
+    Entities,
+    Responses\Assemblers
+};
 
 class UpdatePageById extends AbstractResponseService
 {

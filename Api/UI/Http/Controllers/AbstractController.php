@@ -8,8 +8,10 @@ use Demo\Api\UI\Http\Contracts\ControllerInterface;
 
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Response;
-use Illuminate\Http\Request;
+use \Illuminate\Http\{
+    Response,
+    Request
+};
 
 abstract class AbstractController extends Controller implements ControllerInterface
 {

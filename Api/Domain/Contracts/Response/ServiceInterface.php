@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Contracts\Response;
 
-use Demo\Api\Domain\Contracts\ResponseInterface;
-use Demo\Api\Domain\Contracts\RequestInterface;
+use Demo\Api\Domain\{
+    Contracts\ResponseInterface,
+    Contracts\RequestInterface
+};
 
 interface ServiceInterface
 {

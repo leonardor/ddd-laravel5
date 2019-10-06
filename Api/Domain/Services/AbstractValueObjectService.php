@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Services;
 
-use Demo\Api\Domain\Contracts\ValueObject\ServiceInterface;
-use Demo\Api\Domain\Contracts\RequestInterface;
-use Demo\Api\Domain\Contracts\ValueObjectInterface;
-use Demo\Api\Domain\Contracts\Request\TransformerInterface;
-use Demo\Api\Domain\Contracts\Request\ValidatorInterface;
-use Demo\Api\Domain\Contracts\RepositoryInterface;
+use Demo\Api\Domain\{
+    Contracts\ValueObject\ServiceInterface,
+    Contracts\RequestInterface,
+    Contracts\ValueObjectInterface,
+    Contracts\Request\TransformerInterface,
+    Contracts\Request\ValidatorInterface,
+    Contracts\RepositoryInterface
+};
 
 abstract class AbstractValueObjectService implements ServiceInterface
 {

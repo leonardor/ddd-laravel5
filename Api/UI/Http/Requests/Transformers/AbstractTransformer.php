@@ -8,7 +8,7 @@ use Demo\Api\UI\Http\Contracts\Request\TransformerInterface;
 
 use Demo\Api\Application\Contracts\CommandInterface;
 
-use Illuminate\Http\Request;
+use \Illuminate\Http\Request;
 
 abstract class AbstractTransformer implements TransformerInterface
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Demo\Api\Infrastructure\Persistence\Repositories\Eloquent;
 
-use Illuminate\Database\Eloquent\Model;
+use \Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {

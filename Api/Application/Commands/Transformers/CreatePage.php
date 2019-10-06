@@ -6,8 +6,10 @@ namespace Demo\Api\Application\Commands\Transformers;
 
 use Demo\Api\Application\Contracts\CommandInterface;
 
-use Demo\Api\Domain\Contracts\RequestInterface;
-use Demo\Api\Domain\Requests;
+use Demo\Api\Domain\{
+    Contracts\RequestInterface,
+    Requests
+};
 
 class CreatePage extends AbstractTransformer
 {

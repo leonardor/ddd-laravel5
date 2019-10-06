@@ -6,8 +6,10 @@ namespace Demo\Api\Domain\Contracts\Repository;
 
 use Demo\Api\Domain\Contracts\EntityInterface;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
+use \Illuminate\Database\Eloquent\{
+    Model,
+    Collection
+};
 
 interface AssemblerInterface
 {

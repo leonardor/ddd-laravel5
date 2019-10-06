@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Demo\Api\Domain\Requests\Transformers;
 
-use Demo\Api\Domain\Contracts\EntityInterface;
-use Demo\Api\Domain\Contracts\RequestInterface;
+use Demo\Api\Domain\{
+    Contracts\EntityInterface,
+    Contracts\RequestInterface
+};
 
-use Demo\Api\Domain\Entities;
-use Demo\Api\Domain\ValueObjects;
+use Demo\Api\Domain\{
+    Entities,
+    ValueObjects
+};
 
 class Page extends AbstractTransformer
 {

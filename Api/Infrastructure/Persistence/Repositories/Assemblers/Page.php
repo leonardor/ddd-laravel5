@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Demo\Api\Infrastructure\Persistence\Repositories\Assemblers;
 
-use Demo\Api\Domain\Contracts\EntityInterface;
-use Demo\Api\Domain\Entities;
-use Demo\Api\Domain\ValueObjects;
+use Demo\Api\Domain\{
+    Contracts\EntityInterface,
+    Entities,
+    ValueObjects
+};
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
+use \Illuminate\Database\Eloquent\{
+    Model,
+    Collection
+};
 
 class Page extends AbstractAssembler
 {
