@@ -17,8 +17,8 @@ class Page extends AbstractRepository
                 'type' => $entity->getType()->getValue(),
                 'is_visible' => (int)$entity->isVisible(),
                 'category_id' => $entity->getCategoryId(),
-                'date' => (is_a($entity->getDate(), "DateTime") ? $entity->getDate()->format('Y-m-d H:i:s') : null),
-                'update' => (is_a($entity->getUpdate(), "DateTime") ? $entity->getUpdate()->format('Y-m-d H:i:s') : null)
+                'date' => (($entity->getDate() instanceof \DateTime) ? $entity->getDate()->format('Y-m-d H:i:s') : null),
+                'update' => (($entity->getUpdate() instanceof DateTime) ? $entity->getUpdate()->format('Y-m-d H:i:s') : null)
             ]);
         } catch (\Throwable $e) {
             throw new ModelException($e->getMessage(), 500, $e);
